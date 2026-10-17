@@ -1,0 +1,135 @@
+/* =========================================================
+   STYLE.CSS - Portfólio Tecnológico @Laicram88
+   ========================================================= */
+
+:root {
+  --accent: #00f2fe;
+  --accent-rgb: 0, 242, 254;
+  --accent-secondary: #7c3aed;
+  --bg-dark: #05070f;
+}
+
+[data-theme="purple"] {
+  --accent: #c084fc;
+  --accent-rgb: 192, 132, 252;
+  --accent-secondary: #ec4899;
+}
+
+[data-theme="emerald"] {
+  --accent: #10b981;
+  --accent-rgb: 16, 185, 129;
+  --accent-secondary: #06b6d4;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #e2e8f0;
+  font-family: "Space Grotesk", sans-serif;
+  overflow-x: hidden;
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Grid Cyber Background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Glassmorphism & Spotlight Card */
+.spotlight-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(var(--accent-rgb), 0.14),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.4);
+  box-shadow: 0 12px 40px -15px rgba(var(--accent-rgb), 0.2);
+}
+
+/* Dynamic Accent Utilities */
+.text-accent {
+  color: var(--accent);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.bg-accent-glow {
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+}
+
+.shadow-accent {
+  box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.35);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--accent-rgb), 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-rgb), 0.6);
+}
+
+/* Pulse Indicator */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  animation: pulse-ring 2s infinite;
+}

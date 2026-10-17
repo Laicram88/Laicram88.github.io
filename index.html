@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laicram88 | Creative Tech & Web Developer Portfolio</title>
+
+  <!-- CDN do Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fontes do Google: Space Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícones Vetoriais Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Arquivo CSS Externo -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body id="top" class="cyber-grid relative min-h-screen selection:bg-cyan-500 selection:text-black">
+
+  <!-- Canvas Interativo de Partículas -->
+  <canvas id="neural-canvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
+
+  <!-- Orbes de Luz Ambiente -->
+  <div class="fixed top-[-10%] left-[-10%] w-96 h-96 rounded-full bg-cyan-500/10 blur-[130px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-96 h-96 rounded-full bg-purple-600/10 blur-[130px] pointer-events-none z-0"></div>
+
+  <!-- Barra de Navegação Flutuante HUD -->
+  <header class="fixed top-4 left-0 right-0 z-50 px-4">
+    <nav class="max-w-6xl mx-auto spotlight-card rounded-2xl px-6 py-3.5 flex items-center justify-between border border-white/10 shadow-2xl">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-accent-glow flex items-center justify-center text-black font-bold font-mono-tech text-lg shadow-accent">
+          &lt;/&gt;
+        </div>
+        <div>
+          <span class="font-bold tracking-wider text-white block leading-none">LAICRAM<span class="text-accent">88</span></span>
+          <span class="font-mono-tech text-[10px] text-slate-400">SYS.VER // 2026.5</span>
+        </div>
+      </a>
+
+      <!-- Links de Navegação -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#top" class="hover:text-white transition flex items-center gap-1.5"><span class="text-accent font-mono-tech text-xs">01.</span>Início</a>
+        <a href="#projects" class="hover:text-white transition flex items-center gap-1.5"><span class="text-accent font-mono-tech text-xs">02.</span>Destaques</a>
+        <a href="#github" class="hover:text-white transition flex items-center gap-1.5"><span class="text-accent font-mono-tech text-xs">03.</span>Projetos & Pages</a>
+        <a href="#skills" class="hover:text-white transition flex items-center gap-1.5"><span class="text-accent font-mono-tech text-xs">04.</span>Stack</a>
+        <a href="#terminal-sec" class="hover:text-white transition flex items-center gap-1.5"><span class="text-accent font-mono-tech text-xs">05.</span>Terminal</a>
+      </div>
+
+      <!-- Alternador de Temas & Botão do GitHub -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 bg-slate-900/90 border border-white/10 rounded-full px-2.5 py-1.5" title="Alternar Tema Neon">
+          <button onclick="setTheme('cyan')" class="w-3.5 h-3.5 rounded-full bg-[#00f2fe] hover:scale-125 transition"></button>
+          <button onclick="setTheme('purple')" class="w-3.5 h-3.5 rounded-full bg-[#c084fc] hover:scale-125 transition"></button>
+          <button onclick="setTheme('emerald')" class="w-3.5 h-3.5 rounded-full bg-[#10b981] hover:scale-125 transition"></button>
+        </div>
+
+        <a href="https://github.com/Laicram88" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono-tech flex items-center gap-2 transition">
+          <i data-lucide="github" class="w-4 h-4 text-accent"></i>
+          <span class="hidden sm:inline">@Laicram88</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="relative z-10 max-w-6xl mx-auto px-4 pt-32 pb-24 space-y-28">
+
+    <!-- SEÇÃO PRINCIPAL -->
+    <section class="grid lg:grid-cols-12 gap-10 items-center pt-6">
+      <div class="lg:col-span-7 space-y-6">
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-white/10 text-xs font-mono-tech text-slate-300">
+          <span class="relative w-2 h-2 rounded-full bg-accent status-dot"></span>
+          <span>STATUS: DISPONÍVEL PARA PROJETOS & DESAFIOS TECH</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-bold leading-[1.1] tracking-tight text-white">
+          Arquitetando interfaces <span class="text-accent">inteligentes</span> & automações de próxima geração.
+        </h1>
+
+        <p id="hero-bio" class="text-slate-400 text-lg leading-relaxed max-w-2xl">
+          Desenvolvedor Web focado em experiências Front-End modernas, sistemas interativos, integração de APIs e fluxos avançados de automação inteligente. Transformando ideias complexas em aplicações publicadas e escaláveis.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#github" class="px-6 py-3.5 rounded-xl bg-accent-glow text-black font-bold text-sm tracking-wide flex items-center gap-2 shadow-accent hover:opacity-95 transition">
+            <span>Testar Projetos Online (Pages)</span>
+            <i data-lucide="globe" class="w-4 h-4"></i>
+          </a>
+          <a href="https://github.com/Laicram88" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl spotlight-card text-white font-medium text-sm flex items-center gap-2.5">
+            <i data-lucide="github" class="w-4 h-4 text-accent"></i>
+            <span>Acessar GitHub Oficial</span>
+          </a>
+        </div>
+
+        <!-- Faixa de Estatísticas em Tempo Real -->
+        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg">
+          <div>
+            <span class="text-2xl sm:text-3xl font-bold text-white font-mono-tech" id="stat-repos">--</span>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Repositórios</p>
+          </div>
+          <div>
+            <span class="text-2xl sm:text-3xl font-bold text-accent font-mono-tech" id="stat-pages">--</span>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">GitHub Pages Ativos</p>
+          </div>
+          <div>
+            <span class="text-2xl sm:text-3xl font-bold text-white font-mono-tech">100%</span>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Responsivo & UI</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card de Perfil Estilo Cyber HUD -->
+      <div class="lg:col-span-5">
+        <div class="spotlight-card rounded-3xl p-6 border border-white/10 relative">
+          <div class="flex items-center justify-between pb-4 mb-5 border-b border-white/10 font-mono-tech text-xs text-slate-400">
+            <span>ID // GITHUB_PAGES_ROUTER</span>
+            <span class="text-accent flex items-center gap-1">
+              <i data-lucide="wifi" class="w-3.5 h-3.5"></i> AUTO-DETECT
+            </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <img id="gh-avatar" src="https://github.com/Laicram88.png" alt="Laicram88 Avatar" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=300&auto=format&fit=crop&q=80'" class="w-20 h-20 rounded-2xl object-cover border-2 border-accent shadow-accent" />
+            <div>
+              <h2 id="gh-name" class="text-xl font-bold text-white">Laicram88</h2>
+              <p class="text-xs font-mono-tech text-accent">@Laicram88 • Web Developer</p>
+              <p id="gh-location" class="text-xs text-slate-400 mt-1 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> Brasil
+              </p>
+            </div>
+          </div>
+
+          <!-- Pré-visualização de Código dentro do HUD -->
+          <div class="mt-6 bg-black/60 rounded-2xl p-4 border border-white/5 font-mono-tech text-xs leading-relaxed text-slate-300">
+            <div class="flex items-center gap-1.5 mb-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="ml-2 text-[10px] text-slate-500">router.pages.js</span>
+            </div>
+            <pre class="overflow-x-auto"><code><span class="text-purple-400">const</span> <span class="text-cyan-300">openProject</span> = (repo) => {
+  <span class="text-purple-400">if</span> (repo.has_pages) {
+    <span class="text-slate-500">// Abre direto o site no GitHub Pages!</span>
+    <span class="text-purple-400">return</span> <span class="text-emerald-400">`https://laicram88.github.io/${repo.name}`</span>;
+  }
+  <span class="text-purple-400">return</span> repo.html_url;
+};</code></pre>
+          </div>
+
+          <div class="mt-5 flex items-center justify-between text-xs font-mono-tech text-slate-400">
+            <span id="gh-followers">Seguidores: --</span>
+            <a href="#terminal-sec" class="text-accent hover:underline flex items-center gap-1">
+              Abrir Terminal <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REPOSITÓRIOS GITHUB & GITHUB PAGES AO VIVO (@Laicram88) -->
+    <section id="github" class="space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="font-mono-tech text-xs uppercase tracking-widest text-accent">// 02. PROJETOS SINCRONIZADOS COM @LAICRAM88</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Projetos & GitHub Pages</h2>
+          <p class="text-slate-400 text-sm mt-1">
+            Projetos com <span class="text-emerald-400 font-mono-tech">LIVE PAGE</span> abrem diretamente o site publicado no GitHub Pages ao clicar.
+          </p>
+        </div>
+
+        <!-- Botões de Filtro -->
+        <div class="flex items-center gap-2 bg-slate-900/80 p-1.5 rounded-2xl border border-white/10 self-start md:self-auto">
+          <button id="filter-all" onclick="filterRepos('all')" class="px-3.5 py-1.5 rounded-xl text-xs font-mono-tech bg-white/10 text-white transition">
+            Todos
+          </button>
+          <button id="filter-pages" onclick="filterRepos('pages')" class="px-3.5 py-1.5 rounded-xl text-xs font-mono-tech text-slate-400 hover:text-white flex items-center gap-1.5 transition">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Com GitHub Pages
+          </button>
+        </div>
+      </div>
+
+      <!-- Grade Dinâmica preenchida via API do GitHub -->
+      <div id="github-repos-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="spotlight-card rounded-2xl p-6 animate-pulse">
+          <div class="h-4 w-1/2 bg-white/10 rounded mb-3"></div>
+          <div class="h-3 w-full bg-white/5 rounded mb-2"></div>
+          <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-6 animate-pulse">
+          <div class="h-4 w-1/2 bg-white/10 rounded mb-3"></div>
+          <div class="h-3 w-full bg-white/5 rounded mb-2"></div>
+          <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+        </div>
+        <div class="spotlight-card rounded-2xl p-6 animate-pulse">
+          <div class="h-4 w-1/2 bg-white/10 rounded mb-3"></div>
+          <div class="h-3 w-full bg-white/5 rounded mb-2"></div>
+          <div class="h-3 w-4/5 bg-white/5 rounded"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARQUITETURA EM DESTAQUE (Destaques de Engenharia) -->
+    <section id="projects" class="space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="font-mono-tech text-xs uppercase tracking-widest text-accent">// 03. SHOWCASE DE ENGENHARIA</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Soluções & Arquiteturas</h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-md">
+          Foco em interatividade avançada, automação inteligente e arquitetura moderna.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Projeto 1: WuSmartHome -->
+        <article class="spotlight-card rounded-3xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-accent">
+                <i data-lucide="cpu" class="w-5 h-5"></i>
+              </div>
+              <span class="font-mono-tech text-[11px] px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                Smart Home & AI
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-accent transition">
+              WuSmartHome — Plataforma de Automação Residencial
+            </h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Interface web completa e responsiva para soluções de casa inteligente. Conta com carrossel interativo de ambientes, modal dinâmico para cálculo de orçamento personalizado e assistente de Chat com IA integrado.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/10 space-y-4">
+            <div class="flex flex-wrap gap-1.5 font-mono-tech text-[11px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">HTML5</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">CSS3 Moderno</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">JavaScript ES6+</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">AI Chat UI</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projeto 2: n8n & Automação de APIs -->
+        <article class="spotlight-card rounded-3xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                <i data-lucide="workflow" class="w-5 h-5"></i>
+              </div>
+              <span class="font-mono-tech text-[11px] px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                Workflow Engine
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-accent transition">
+              Hub de Automação & Integração de APIs
+            </h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Orquestração de fluxos automatizados em ambiente self-hosted utilizando n8n, requisições HTTP autenticadas, tratamento de payloads JSON e webhooks em tempo real para integração de serviços.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/10 space-y-4">
+            <div class="flex flex-wrap gap-1.5 font-mono-tech text-[11px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">n8n</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">REST APIs</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Webhooks</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">JSON</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projeto 3: Web App & Security Lab -->
+        <article class="spotlight-card rounded-3xl p-6 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <span class="font-mono-tech text-[11px] px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                Web & Security
+              </span>
+            </div>
+
+            <h3 class="text-xl font-bold text-white group-hover:text-accent transition">
+              Arquitetura Web Segura & Boas Práticas
+            </h3>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Desenvolvimento de interfaces modernas aplicando conceitos de validação de dados, prevenção de vulnerabilidades web (como SQL Injection e XSS), auditoria de sistemas e performance no navegador.
+            </p>
+          </div>
+
+          <div class="pt-6 mt-6 border-t border-white/10 space-y-4">
+            <div class="flex flex-wrap gap-1.5 font-mono-tech text-[11px] text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-white/5">JavaScript</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">InfoSec</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">SQL</span>
+              <span class="px-2 py-0.5 rounded bg-white/5">Git</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MATRIZ DE STACK TECNOLÓGICA & HABILIDADES -->
+    <section id="skills" class="space-y-8">
+      <div>
+        <span class="font-mono-tech text-xs uppercase tracking-widest text-accent">// 04. ARSENAL TECNOLÓGICO</span>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Stack & Competências</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Front-End -->
+        <div class="spotlight-card rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <i data-lucide="layout" class="w-6 h-6 text-accent"></i>
+            <h3 class="text-lg font-bold text-white">Front-End & UI/UX</h3>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>HTML5 Semântico & Acessibilidade</span><span class="text-accent">95%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[95%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>CSS3 / Layouts Responsivos / Animações</span><span class="text-accent">90%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[90%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>JavaScript (ES6+, DOM, Fetch API)</span><span class="text-accent">88%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[88%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Automação & Integrações -->
+        <div class="spotlight-card rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <i data-lucide="bot" class="w-6 h-6 text-accent"></i>
+            <h3 class="text-lg font-bold text-white">Automação & Back-End</h3>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>n8n Workflows & Self-Hosting</span><span class="text-accent">90%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[90%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>Integração de APIs REST & Webhooks</span><span class="text-accent">88%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[88%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>Banco de Dados & Consultas SQL</span><span class="text-accent">80%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[80%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ferramentas & Segurança -->
+        <div class="spotlight-card rounded-3xl p-6 space-y-5">
+          <div class="flex items-center gap-3">
+            <i data-lucide="terminal-square" class="w-6 h-6 text-accent"></i>
+            <h3 class="text-lg font-bold text-white">DevOps & Segurança</h3>
+          </div>
+          <div class="space-y-3 text-sm">
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>Git, GitHub & GitHub Pages</span><span class="text-accent">92%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[92%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>Fundamentos de Segurança Web</span><span class="text-accent">85%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[85%]"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between font-mono-tech text-xs mb-1"><span>Diagnóstico de Sistemas & Hardware</span><span class="text-accent">92%</span></div>
+              <div class="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                <div class="h-full bg-accent-glow w-[92%]"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMINAL INTERATIVO DO DESENVOLVEDOR -->
+    <section id="terminal-sec" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="font-mono-tech text-xs uppercase tracking-widest text-accent">// 05. CONSOLE INTERATIVO</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Terminal LaicramOS</h2>
+        </div>
+        <p class="text-xs font-mono-tech text-slate-400">
+          Clique em um comando rápido ou digite abaixo (<span class="text-accent">help</span>, <span class="text-accent">pages</span>, <span class="text-accent">skills</span>, <span class="text-accent">github</span>, <span class="text-accent">clear</span>)
+        </p>
+      </div>
+
+      <div class="spotlight-card rounded-3xl border border-white/15 overflow-hidden shadow-2xl">
+        <!-- Terminal Header -->
+        <div class="bg-slate-950/90 px-5 py-3 border-b border-white/10 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+            <span class="ml-3 font-mono-tech text-xs text-slate-400">guest@laicram88-portfolio:~</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <button onclick="runCommand('help')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 font-mono-tech text-[11px] text-accent transition">help</button>
+            <button onclick="runCommand('pages')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 font-mono-tech text-[11px] text-emerald-400 transition">pages</button>
+            <button onclick="runCommand('skills')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 font-mono-tech text-[11px] text-accent transition">skills</button>
+            <button onclick="runCommand('github')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 font-mono-tech text-[11px] text-accent transition">github</button>
+            <button onclick="runCommand('clear')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-white/10 font-mono-tech text-[11px] text-rose-400 transition">clear</button>
+          </div>
+        </div>
+
+        <!-- Terminal Output -->
+        <div id="terminal-output" class="p-6 h-72 overflow-y-auto font-mono-tech text-xs sm:text-sm space-y-2.5 bg-black/75 text-slate-300">
+          <div class="text-slate-400">Inicializando LaicramOS Kernel v2026.5... <span class="text-emerald-400">OK</span></div>
+          <div>Bem-vindo ao terminal interativo do portfólio de <span class="text-accent font-bold">Laicram88</span>.</div>
+          <div>Digite <span class="text-emerald-400">'pages'</span> para listar todos os projetos que possuem site ativo no GitHub Pages!</div>
+        </div>
+
+        <!-- Terminal Input -->
+        <form id="terminal-form" class="bg-slate-950/90 px-6 py-3.5 border-t border-white/10 flex items-center gap-3 font-mono-tech text-sm">
+          <span class="text-accent font-bold">guest@laicram88:~$</span>
+          <input id="terminal-input" type="text" autocomplete="off" placeholder="Digite um comando (ex: pages)..." class="w-full bg-transparent text-white focus:outline-none placeholder:text-slate-600" />
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 border-t border-white/10 py-10 px-4 bg-black/40">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tech text-slate-400">
+      <div>
+        © 2026 <span class="text-white font-bold">Laicram88</span>. Construído com arquitetura futurista & integração GitHub Pages.
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="#top" class="hover:text-accent transition flex items-center gap-1">
+          Voltar ao topo <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+        </a>
+        <a href="https://github.com/Laicram88" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Arquivo JavaScript Externo -->
+  <script src="script.js"></script>
+</body>
+
+</html>
